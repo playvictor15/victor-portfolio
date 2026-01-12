@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+.header {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+.header h1 {
+  font-size: 3rem;
+}
+
+.header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #93c5fd;
+}
+
+.tech-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-list li {
+  background: #1e293b;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.project {
+  background: #020617;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+}
+
+.project a {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 2.2rem;
+  }
+}
