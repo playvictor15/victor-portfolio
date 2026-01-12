@@ -2,89 +2,103 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
 }
 
 body {
-  background: #0f172a;
+  background: #0b0f19;
   color: #e5e7eb;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-.header {
-  text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #2563eb, #1e40af);
+/* HERO */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10%;
 }
 
-.header h1 {
-  font-size: 3rem;
+.hero h1 {
+  font-size: 4rem;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+.hero h2 {
+  font-size: 2rem;
+  margin-top: 10px;
 }
 
+.hero p {
+  max-width: 500px;
+  margin-top: 20px;
+  opacity: 0.85;
+}
+
+/* CONTAINER */
 .container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 80px 20px;
 }
 
 .section {
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
-.section h2 {
+.section h3 {
   font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #93c5fd;
-}
-
-.tech-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tech-list li {
-  background: #1e293b;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-}
-
-.project {
-  background: #020617;
-  padding: 20px;
-  border-radius: 10px;
   margin-bottom: 20px;
-  transition: transform 0.3s ease;
 }
 
-.project:hover {
-  transform: translateY(-5px);
+/* PROJECTS */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
-.project a {
-  color: #60a5fa;
+.card {
+  background: #111827;
+  padding: 30px;
+  border-radius: 16px;
   text-decoration: none;
-  font-weight: bold;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.footer {
-  text-align: center;
-  padding: 20px;
-  background: #020617;
-  font-size: 0.9rem;
+.card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card p {
   opacity: 0.8;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-  .header h1 {
-    font-size: 2.2rem;
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
   }
 }
