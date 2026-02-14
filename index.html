@@ -6,46 +6,41 @@
   <title>Victor • Desenvolvedor Web</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-
-<header class="hero">
-  <h1>Victor</h1>
-  <h2>Desenvolvedor Web</h2>
-  <p>Crio interfaces modernas, responsivas e bem estruturadas.</p>
+<header>
+    <nav class="navbar">
+        <div class="logo">Portfolio<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div class="menu-icon">☰</div>
+    </nav>
 </header>
 
-<main class="container">
+<main>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-pic">
+                <img src="blob:https://web.whatsapp.com/b1508a68-c46e-40cb-9196-f06952cd6b41" alt="Victor">
+            </div>
+            <h1>Desenvolvedor web</h1>
+            <p>Crio soluções inovadoras, construindo interfaces e transformando ideias em código.</p>
+            <a href="#contato" class="btn-primary">Conecte-se</a>
+        </div>
+    </section>
 
-  <section class="section">
-    <h3>Sobre</h3>
-    <p>
-      Desenvolvedor web focado em HTML e CSS, com atenção a design,
-      responsividade e boas práticas. Código limpo, visual elegante
-      e zero gambiarra.
-    </p>
-  </section>
-
-  <section class="section">
-    <h3>Projetos</h3>
-
-    <div class="projects">
-
-    </div>
-  </section>
-
-  <section class="section">
-    <h3>Contato</h3>
-    <p>
-      GitHub: <a href="https://github.com/playvictor15" target="_blank">playvictor15</a><br>
-      Email:playv290@gmail.com
-    </p>
-  </section>
-
+    <section id="projetos" class="projects">
+        <h2>Meus Projetos Recentes <span></></span></h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="card-icon">🚀</div>
+                <h3>EcoConnect</h3>
+                <div class="tags"><span>React Native</span><span>Firebase</span></div>
+            </div>
+            </div>
+    </section>
 </main>
-
-<footer>
-  © 2026 • Victor
-</footer>
-
 </body>
 </html>
