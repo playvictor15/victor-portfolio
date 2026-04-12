@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victor Portfolio</title>
+    
+    <link rel="icon" type="image/png" href="https://github.com/playvictor15.png">
+    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -23,51 +26,53 @@
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="profile-container">
-                <img src="https://github.com/playvictor15.png" alt="Victor Profile" class="profile-pic">
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="profile-container">
+                    <img src="https://github.com/playvictor15.png" alt="Victor Profile" class="profile-pic">
+                </div>
+                <h1 class="gradient-text">Desenvolvedor web</h1>
+                <p>Crio soluções inovadoras, construindo interfaces de alta performance e transformando ideias em código real.</p>
+                <div class="hero-btns">
+                    <a href="#contato" class="btn-primary">Conecte-se</a>
+                    <a href="#projetos" class="btn-secondary">Ver Projetos</a>
+                </div>
             </div>
-            <h1 class="gradient-text">Desenvolvedor web</h1>
-            <p>Crio soluções inovadoras, construindo interfaces de alta performance e transformando ideias em código real.</p>
-            <div class="hero-btns">
-                <a href="#contato" class="btn-primary">Conecte-se</a>
-                <a href="#projetos" class="btn-secondary">Ver Projetos</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projetos" class="projects">
-        <div class="section-title">
-            <h2>Meus Projetos Recentes <span>{ / }</span></h2>
-        </div>
-        
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="card-glass">
-                    <div class="icon-box"><i data-lucide="layout"></i></div>
-                    <h3>EcoConnect App</h3>
-                    <p>Interface moderna para gestão de resíduos e sustentabilidade urbana.</p>
-                    <div class="tags">
-                        <span>React</span>
-                        <span>Node.js</span>
+        <section id="projetos" class="projects">
+            <div class="section-title">
+                <h2>Meus Projetos Recentes <span>{ / }</span></h2>
+            </div>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="card-glass">
+                        <div class="icon-box"><i data-lucide="layout"></i></div>
+                        <h3>Plataforma de Afiliados</h3>
+                        <p>Sistema integrado com Firebase para divulgação de produtos Shopee e Mercado Livre.</p>
+                        <div class="tags">
+                            <span>JavaScript</span>
+                            <span>Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-glass">
+                        <div class="icon-box"><i data-lucide="mic"></i></div>
+                        <h3>Assistente Iara</h3>
+                        <p>IA de voz autônoma desenvolvida em Python para automação de tarefas.</p>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>GitHub</span>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="project-card">
-                <div class="card-glass">
-                    <div class="icon-box"><i data-lucide="database"></i></div>
-                    <h3>FinanceFlow</h3>
-                    <p>Dashboard financeiro com gráficos em tempo real e controle de gastos.</p>
-                    <div class="tags">
-                        <span>TypeScript</span>
-                        <span>Next.js</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <script src="script.js"></script>
     <script>lucide.createIcons();</script>
