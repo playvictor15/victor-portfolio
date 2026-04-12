@@ -1,17 +1,17 @@
-// Menu Mobile
+const nav = document.querySelector('.navbar');
 const mobileMenu = document.getElementById('mobile-menu');
 const navLinks = document.getElementById('nav-links');
 
+// Menu Mobile Toggle
 mobileMenu.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// Efeito de Scroll na Navbar
+// Efeito de Scroll na Navbar otimizado
 window.addEventListener('scroll', () => {
-    const nav = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        nav.style.background = '#05070a';
+        nav.classList.add('nav-scrolled');
     } else {
-        nav.style.background = 'rgba(8, 10, 15, 0.8)';
+        nav.classList.remove('nav-scrolled');
     }
 });
