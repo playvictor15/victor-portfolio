@@ -46,10 +46,10 @@ body {
 .logo span { color: var(--primary-cyan); }
 
 .nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a { text-decoration: none; color: var(--text-dim); transition: 0.3s; }
+.nav-links a { text-decoration: none; color: var(--text-dim); transition: 0.3s; font-weight: 500; }
 .nav-links a:hover { color: var(--primary-cyan); }
 
-/* Hero */
+/* Hero Section */
 .hero {
     height: 100vh;
     display: flex;
@@ -101,6 +101,16 @@ body {
 .card-glass { background: var(--glass); border: 1px solid var(--glass-border); padding: 30px; border-radius: 20px; transition: 0.4s; }
 .card-glass:hover { border-color: var(--primary-cyan); transform: translateY(-10px); }
 .icon-box { color: var(--primary-cyan); margin-bottom: 15px; }
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    color: var(--primary-cyan);
+    text-decoration: none;
+    font-weight: 600;
+}
 
 .tags span {
     font-size: 0.8rem;
