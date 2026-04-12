@@ -7,7 +7,7 @@ mobileMenu.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// Efeito de Scroll na Navbar
+// Efeito de Scroll na Navbar para mudar o fundo
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         nav.classList.add('nav-scrolled');
