@@ -1,3 +1,6 @@
+* ============================================================
+   VARIÁVEIS GLOBAIS
+   ============================================================ */
 :root {
     --bg-dark: #080a0f;
     --primary-cyan: #00f2ff;
@@ -5,13 +8,25 @@
     --text-dim: #a0a0a0;
     --glass: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
+    --navbar-height: 80px;
 }
 
-* {
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Scroll suave aplicado em html (correto) */
+html {
     scroll-behavior: smooth;
+    /* Compensa a navbar fixa ao navegar por âncoras */
+    scroll-padding-top: var(--navbar-height);
 }
 
 body {
@@ -22,41 +37,138 @@ body {
     overflow-x: hidden;
 }
 
-/* --- NAVBAR --- */
+/* Respeita preferência de movimento reduzido (acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================================
+   FOCO VISÍVEL (acessibilidade por teclado)
+   ============================================================ */
+:focus-visible {
+    outline: 2px solid var(--primary-cyan);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 8%;
+    padding: 0 8%;
+    height: var(--navbar-height);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: all 0.4s ease;
+    transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+    border-bottom: 1px solid transparent;
 }
 
 .nav-scrolled {
-    background: rgba(8, 10, 15, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 15px 8%;
-    border-bottom: 1px solid var(--glass-border);
+    background: rgba(8, 10, 15, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: var(--glass-border);
+    height: 65px;
 }
 
-.logo { font-size: 1.5rem; font-weight: 800; }
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
 .logo span { color: var(--primary-cyan); }
 
-.nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a { text-decoration: none; color: var(--text-dim); transition: 0.3s; font-weight: 500; }
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dim);
+    transition: color 0.3s;
+    font-weight: 500;
+}
 .nav-links a:hover { color: var(--primary-cyan); }
 
-/* --- HERO SECTION --- */
+/* Botão de menu mobile — oculto em desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: color 0.3s;
+}
+.menu-toggle:hover { color: var(--primary-cyan); }
+
+/* ============================================================
+   RESPONSIVIDADE — NAVBAR MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(8, 10, 15, 0.97);
+        border-bottom: 1px solid var(--glass-border);
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 14px 8%;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: calc(var(--navbar-height) + 40px) 8% 80px;
     background: radial-gradient(circle at top right, rgba(0, 242, 255, 0.05), transparent);
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profile-pic {
@@ -72,58 +184,100 @@ body {
 .gradient-text {
     font-size: clamp(2rem, 5vw, 3.5rem);
     background: linear-gradient(to right, #fff, var(--primary-cyan));
+    /* Versão padrão + prefixada para cobertura total */
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent; /* fallback */
     margin-bottom: 20px;
 }
 
-.hero p { max-width: 600px; color: var(--text-dim); margin: 0 auto 30px; }
+.hero p {
+    max-width: 600px;
+    color: var(--text-dim);
+    margin: 0 auto 30px;
+}
 
-/* --- BUTTONS --- */
-.btn-primary, .btn-secondary {
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+.hero-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
     padding: 12px 35px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    transition: 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
     display: inline-block;
 }
 
-.btn-primary { background: var(--primary-cyan); color: #000; margin-right: 15px; }
-.btn-primary:hover { box-shadow: 0 0 20px var(--primary-cyan); transform: scale(1.05); }
-
-.btn-secondary { color: #fff; border: 1px solid var(--glass-border); }
-.btn-secondary:hover { background: var(--glass); }
-
-/* --- SEÇÃO SOBRE (ESTILIZADA EM CARDS) --- */
-.about { 
-    padding: 100px 8%; 
-    background: rgba(255, 255, 255, 0.01);
+.btn-primary {
+    background: var(--primary-cyan);
+    color: #000;
+}
+.btn-primary:hover {
+    box-shadow: 0 0 20px var(--primary-cyan);
+    transform: scale(1.05);
 }
 
-.about h2 {
-    font-size: 2.5rem;
+.btn-secondary {
+    color: #fff;
+    border: 1px solid var(--glass-border);
+}
+.btn-secondary:hover {
+    background: var(--glass);
+}
+
+/* ============================================================
+   TÍTULOS DE SEÇÃO (padrão unificado)
+   ============================================================ */
+.section-title {
     text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     background: linear-gradient(to right, #fff, var(--primary-cyan));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 50px;
+    color: transparent;
+    display: inline-block;
+}
+
+.section-title h2 span {
+    opacity: 0.5;
+    font-weight: 300;
+}
+
+/* ============================================================
+   SOBRE
+   ============================================================ */
+.about {
+    padding: 100px 8%;
+    background: rgba(255, 255, 255, 0.01);
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .about-card {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
     padding: 40px;
     border-radius: 20px;
-    transition: 0.4s ease;
+    transition: border-color 0.4s ease, transform 0.4s ease, background 0.4s ease;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -147,43 +301,54 @@ body {
     line-height: 1.6;
 }
 
-.about-card strong {
-    color: var(--primary-cyan);
-}
+.about-card strong { color: var(--primary-cyan); }
 
 .highlight-text {
     color: var(--primary-cyan) !important;
     font-weight: 600;
 }
 
-/* --- PROJETOS --- */
+/* ============================================================
+   GLASS (componente reutilizável)
+   ============================================================ */
+.card-glass {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    transition: border-color 0.4s ease, transform 0.4s ease, background 0.4s ease;
+}
+
+/* ============================================================
+   PROJETOS
+   ============================================================ */
 .projects { padding: 100px 8%; }
 
-.section-title h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 800px;  /* centraliza quando há só 1 card */
+    margin: 0 auto;
 }
 
-.project-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px; 
+.card-glass:hover {
+    border-color: var(--primary-cyan);
+    transform: translateY(-10px);
 }
 
-.card-glass { 
-    background: var(--glass); 
-    border: 1px solid var(--glass-border); 
-    padding: 30px; 
-    border-radius: 20px; 
-    transition: 0.4s; 
+.card-glass > * { /* padding interno apenas quando usado como wrapper */
+    padding: 30px;
 }
 
-.card-glass:hover { 
-    border-color: var(--primary-cyan); 
-    transform: translateY(-10px); 
+/* Corrige duplo padding: card-glass dentro de project-card já tem padding */
+.project-card .card-glass {
+    padding: 30px;
 }
 
-.icon-box { color: var(--primary-cyan); margin-bottom: 15px; }
+.icon-box {
+    color: var(--primary-cyan);
+    margin-bottom: 15px;
+}
 
 .project-link {
     display: inline-flex;
@@ -193,6 +358,16 @@ body {
     color: var(--primary-cyan);
     text-decoration: none;
     font-weight: 600;
+    transition: gap 0.3s;
+}
+
+.project-link:hover { gap: 12px; }
+
+.tags {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 .tags span {
@@ -201,14 +376,28 @@ body {
     color: var(--primary-cyan);
     padding: 4px 12px;
     border-radius: 20px;
-    margin-right: 5px;
-    display: inline-block;
-    margin-bottom: 5px;
 }
 
-/* --- CONTATO --- */
-.contact { padding: 100px 8%; text-align: center; }
-.contact-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 40px; }
+/* ============================================================
+   CONTATO
+   ============================================================ */
+.contact {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 10px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
 
 .contact-item {
     display: flex;
@@ -220,10 +409,43 @@ body {
     border-radius: 12px;
     color: #fff;
     text-decoration: none;
-    transition: 0.3s;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.contact-item:hover { 
-    background: var(--primary-cyan); 
-    color: #000; 
+.contact-item:hover {
+    background: var(--primary-cyan);
+    color: #000;
+    border-color: var(--primary-cyan);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+    text-align: center;
+    padding: 30px 8%;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer span { color: var(--primary-cyan); }
+
+/* ============================================================
+   RESPONSIVIDADE GERAL
+   ============================================================ */
+@media (max-width: 600px) {
+    .hero p { font-size: 0.95rem; }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 11px 26px;
+        font-size: 0.9rem;
+    }
+
+    .about-card { padding: 28px; }
+
+    .contact-links { gap: 10px; }
+
+    .contact-item { padding: 10px 16px; font-size: 0.9rem; }
 }
