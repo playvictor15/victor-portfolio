@@ -3,34 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="João Victor Santos — Desenvolvedor Web especializado em JavaScript, HTML5, CSS3 e Firebase. Portfólio de projetos e contato.">
+
+    <!-- Open Graph / Preview de Link -->
+    <meta property="og:title" content="João Victor | Desenvolvedor Web">
+    <meta property="og:description" content="Portfólio de João Victor Santos — projetos em JavaScript, Firebase e Web Moderno.">
+    <meta property="og:image" content="https://github.com/playvictor15.png">
+    <meta property="og:type" content="website">
+
     <title>João Victor | Portfolio</title>
-    
+
     <link rel="icon" type="image/png" href="https://github.com/playvictor15.png">
-    
     <link rel="stylesheet" href="style.css">
+
+    <!-- Preconnect para Google Fonts (melhora performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Lucide com versão fixada (evita quebras por @latest) -->
+    <script src="https://unpkg.com/lucide@0.383.0"></script>
 </head>
 <body>
 
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
         <div class="logo">Victor<span>.</span></div>
-        <ul class="nav-links" id="nav-links">
+
+        <ul class="nav-links" id="nav-links" role="list">
             <li><a href="#home">Home</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#projetos">Projetos</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
-        <div class="menu-toggle" id="mobile-menu">
-            <i data-lucide="menu"></i>
-        </div>
+
+        <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+            <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
     </nav>
 
     <main>
+        <!-- HERO -->
         <section id="home" class="hero">
             <div class="hero-content">
                 <div class="profile-container">
-                    <img src="https://github.com/playvictor15.png" alt="João Victor Santos" class="profile-pic">
+                    <img src="https://github.com/playvictor15.png" alt="Foto de perfil de João Victor Santos" class="profile-pic">
                 </div>
                 <h1 class="gradient-text">João Victor</h1>
                 <p>Desenvolvedor Web em ascensão | Aluno de Desenvolvimento Web na <strong>Anhanguera (Maceió/AL)</strong>.</p>
@@ -41,40 +57,43 @@
             </div>
         </section>
 
-      <section id="sobre" class="about">
+        <!-- SOBRE -->
+        <section id="sobre" class="about">
             <div class="section-title">
                 <h2>Minha Trajetória <span>{ ... }</span></h2>
             </div>
-            
+
             <div class="about-grid">
                 <div class="about-card card-glass">
-                    <div class="icon-box"><i data-lucide="graduation-cap"></i></div>
+                    <div class="icon-box"><i data-lucide="graduation-cap" aria-hidden="true"></i></div>
                     <h3>Formação Acadêmica</h3>
                     <p>Cursando <strong>Desenvolvimento Web na Anhanguera</strong> (Maceió/AL). Construindo uma base sólida com foco nas melhores práticas do mercado e tecnologias modernas.</p>
                 </div>
 
                 <div class="about-card card-glass">
-                    <div class="icon-box"><i data-lucide="code-2"></i></div>
+                    <div class="icon-box"><i data-lucide="code-2" aria-hidden="true"></i></div>
                     <h3>Tech Stack & Prática</h3>
                     <p>Domínio em <strong>JavaScript, HTML5 e CSS3</strong>. Experiência prática na criação de plataformas de afiliados, integrações e gestão de dados em tempo real com <strong>Firebase (Firestore)</strong>.</p>
                 </div>
 
                 <div class="about-card card-glass">
-                    <div class="icon-box"><i data-lucide="rocket"></i></div>
+                    <div class="icon-box"><i data-lucide="rocket" aria-hidden="true"></i></div>
                     <h3>Visão & Objetivos</h3>
                     <p class="highlight-text">Movido pela insaciável vontade de aprender. Estou pronto para enfrentar desafios, aplicar meu conhecimento técnico em projetos reais e evoluir constantemente.</p>
                 </div>
             </div>
         </section>
+
+        <!-- PROJETOS -->
         <section id="projetos" class="projects">
             <div class="section-title">
                 <h2>Meus Projetos Recentes <span>{ / }</span></h2>
             </div>
-            
+
             <div class="project-grid">
                 <div class="project-card">
                     <div class="card-glass">
-                        <div class="icon-box"><i data-lucide="shopping-cart"></i></div>
+                        <div class="icon-box"><i data-lucide="shopping-cart" aria-hidden="true"></i></div>
                         <h3>Plataforma de Ofertas Online</h3>
                         <p>Uma aplicação robusta de divulgação de produtos afiliados, desenvolvida para otimizar a conversão de vendas através de uma interface intuitiva. O sistema utiliza Firebase Firestore para gestão de dados em tempo real de produtos da Shopee e Mercado Livre.</p>
                         <div class="tags">
@@ -82,24 +101,42 @@
                             <span>Firebase</span>
                             <span>HTML5/CSS3</span>
                         </div>
-                        <a href="https://playvictor15.github.io/ofertas-online/" target="_blank" class="project-link">Ver Projeto <i data-lucide="external-link"></i></a>
+                        <a href="https://playvictor15.github.io/ofertas-online/" target="_blank" rel="noopener noreferrer" class="project-link">
+                            Ver Projeto <i data-lucide="external-link" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- CONTATO -->
         <section id="contato" class="contact">
             <h2>Vamos conversar?</h2>
             <div class="contact-links">
-                <a href="mailto:playv290@gmail.com" class="contact-item"><i data-lucide="mail"></i> Email</a>
-                <a href="https://instagram.com/joao_victor_000_" target="_blank" class="contact-item"><i data-lucide="instagram"></i> Instagram</a>
-                <a href="https://wa.me/82981459660" target="_blank" class="contact-item"><i data-lucide="message-circle"></i> WhatsApp</a>
-                <a href="https://github.com/playvictor15" target="_blank" class="contact-item"><i data-lucide="github"></i> GitHub</a>
+                <a href="mailto:playv290@gmail.com" class="contact-item">
+                    <i data-lucide="mail" aria-hidden="true"></i> Email
+                </a>
+                <a href="https://instagram.com/joao_victor_000_" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <i data-lucide="instagram" aria-hidden="true"></i> Instagram
+                </a>
+                <a href="https://wa.me/5582981459660" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <i data-lucide="message-circle" aria-hidden="true"></i> WhatsApp
+                </a>
+                <a href="https://github.com/playvictor15" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <i data-lucide="github" aria-hidden="true"></i> GitHub
+                </a>
             </div>
         </section>
     </main>
 
+    <footer class="footer">
+        <p>Feito com <span aria-label="amor">♥</span> por João Victor &mdash; <span id="footer-year"></span></p>
+    </footer>
+
     <script src="script.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
